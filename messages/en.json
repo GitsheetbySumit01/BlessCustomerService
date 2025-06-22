@@ -1,0 +1,27 @@
+{
+  "welcome": "👋 Welcome to Bless Exchange – your trusted crypto trading platform.",
+  "menu_header": "👇 Choose an option below to continue:",
+  
+  "btn_download_app": "📲 Download App",
+  "btn_recharge": "💸 How to Recharge",
+  "btn_invite": "🎁 Gift Invitation Reward",
+  "btn_buy_spot": "📈 Buy on Spot",
+  "btn_perpetual": "📊 Perpetual Contract",
+  "btn_delivery": "📜 Delivery Transactions",
+  "btn_investment": "💼 Investment & Finance",
+  "btn_sgd": "📅 SGD Subscription",
+  "btn_contact": "📞 Contact Customer Service",
+
+  "download_app": "Download the app from here: https://example.com",
+  "how_to_recharge": "To recharge your account, follow this guide: https://example.com/recharge",
+  "gift_invite": "Invite your friends and earn rewards: https://example.com/invite",
+  "buy_spot": "Learn how to buy spot: https://example.com/spot",
+  "perpetual_contract": "Conduct perpetual contracts here: https://example.com/perpetual",
+  "delivery_contact": "Complete delivery transactions here: https://example.com/delivery",
+  "investment": "Start investment and financial management here: https://example.com/investment",
+  "sgd_subscription": "Participate in SGD subscriptions here: https://example.com/sgd",
+  "support_prompt": "🆘 Still need help? Please describe your issue and share your Bless UID below.",
+  "support_ack": "✅ Thank you! Your message has been received. Our support team will contact you soon."
+
+
+}
