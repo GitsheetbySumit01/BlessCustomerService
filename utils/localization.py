@@ -1,5 +1,3 @@
-# utils/localization.py
-
 import json
 import os
 
@@ -30,3 +28,11 @@ def get_message(user_id, key):
             return data.get(key, "⚠️ Message not found.")
     except FileNotFoundError:
         return "⚠️ Language file missing."
+
+def load_messages(lang_code):
+    file_path = f"messages/{lang_code}.json"
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
