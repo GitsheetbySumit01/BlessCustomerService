@@ -1,0 +1,25 @@
+{
+  "1175393571": {
+    "user_name": "Amrita",
+    "message": "Issue",
+    "status": "resolved",
+    "reply": null,
+    "messages_sent": [
+      {
+        "admin_chat_id": 1746690976,
+        "message_id": 1012
+      },
+      {
+        "admin_chat_id": 1175393571,
+        "message_id": 1013
+      }
+    ]
+  },
+  "1746690976": {
+    "user_name": "Entrepreneur",
+    "message": "Yes I need help",
+    "status": "resolved",
+    "reply": null,
+    "admin_messages": []
+  }
+}

@@ -39,5 +39,11 @@ async def handle_menu_selection(update, context, user_id, text):
     msg_key = option_map.get(text)
 
     if msg_key:
+        # Send the selected option's info first
         await update.message.reply_text(data[msg_key])
+
+        # Then offer additional help prompt
         await update.message.reply_text(data["support_prompt"])
+
+        # ✅ Set awaiting_support only after user has been prompted
+        context.user_data['awaiting_support'] = True

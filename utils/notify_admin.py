@@ -1,7 +1,7 @@
-from config import ADMIN_CHAT_ID
+from config import ADMIN_CHAT_IDS
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 import re
-from utils.ticket_manager import create_ticket
+from utils.ticket_manager import create_ticket, store_admin_message_id
 
 def escape_markdown_v2(text):
     escape_chars = r'\_*[]()~`>#+-=|{}.!'
@@ -12,12 +12,8 @@ async def notify_admin(bot, user, message):
     safe_name = escape_markdown_v2(user.full_name)
     username = user.username
 
-    if username:
-        username_link = f"[@{username}](https://t.me/{username})"
-    else:
-        username_link = "*Not Available*"
+    username_link = f"[@{username}](https://t.me/{username})" if username else "*Not Available*"
 
-    # Store using user ID to ensure uniqueness
     create_ticket(str(user.id), user.full_name, message)
 
     text = (
@@ -37,9 +33,13 @@ async def notify_admin(bot, user, message):
 
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    await bot.send_message(
-        chat_id=ADMIN_CHAT_ID,
-        text=text,
-        reply_markup=reply_markup,
-        parse_mode="MarkdownV2"
-    )
+    # Send ticket message to all admins and save message IDs
+    for admin_chat_id in ADMIN_CHAT_IDS:
+        sent = await bot.send_message(
+            chat_id=admin_chat_id,
+            text=text,
+            reply_markup=reply_markup,
+            parse_mode="MarkdownV2"
+        )
+        # Save the admin's message ID for later deletion
+        store_admin_message_id(str(user.id), admin_chat_id, sent.message_id)
