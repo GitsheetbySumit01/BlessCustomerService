@@ -6,7 +6,7 @@ def create_ticket(user_id, user_name, message):
         "message": message,
         "status": "pending",
         "reply": None,
-        "admin_messages": {}  # Stores {admin_chat_id: message_id}
+        "admin_messages": {}
     }
 
 def mark_resolved(user_id):

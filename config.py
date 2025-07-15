@@ -12,7 +12,14 @@ ADMIN_CHAT_IDS = [
     7549729120,
     7259492609,
     1157748463,
-    1175393571] # Replace with actual Telegram user ID
+    1175393571,
+    8150738862,
+    7808929816,
+    7068035927,
+    7568447420,
+    8195129764,
+    6594026745,
+    5092181510] # Replace with actual Telegram user ID
 LANGUAGES = ["English", "Hindi", "Tamil"]
 
 LANG_CODES = {
