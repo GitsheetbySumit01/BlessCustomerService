@@ -1,14 +1,14 @@
 from config import ADMIN_CHAT_IDS
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 from utils.ticket_manager import create_ticket, store_admin_message_id
+from utils.localization import get_user_language
 import re
 
-# Escape MarkdownV2 characters
 def escape_markdown_v2(text):
     escape_chars = r'\_*[]()~`>#+-=|{}.!'
     return re.sub(f"([{re.escape(escape_chars)}])", r'\\\1', text)
 
-# Notify all admins with a ticket
+# Notify all admins with a support ticket
 async def notify_admin(bot, user, message):
     user_id = str(user.id)
     username = user.username
@@ -16,8 +16,9 @@ async def notify_admin(bot, user, message):
     safe_name = escape_markdown_v2(user.full_name)
     username_link = f"[@{username}](https://t.me/{username})" if username else "*Not Available*"
 
-    # Create a ticket entry
-    create_ticket(user_id, user.full_name, message)
+    # 🔁 Get language and create ticket
+    lang = get_user_language(user_id) or "en"
+    create_ticket(user_id, user.full_name, message, lang)
 
     text = (
         f"📩 *New Support Ticket Received\\!*\n\n"
@@ -27,7 +28,6 @@ async def notify_admin(bot, user, message):
         f"📝 *Message:*\n{safe_message}"
     )
 
-    # Ticket action buttons
     keyboard = [
         [
             InlineKeyboardButton("✅ Mark as Resolved", callback_data=f"resolve_{user_id}"),
