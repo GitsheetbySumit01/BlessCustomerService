@@ -13,13 +13,29 @@
         "admin_chat_id": 1175393571,
         "message_id": 1013
       }
-    ]
+    ],
+    "created_at": null,
+    "resolved_at": null
   },
   "1746690976": {
     "user_name": "Entrepreneur",
     "message": "Yes I need help",
     "status": "resolved",
     "reply": null,
-    "admin_messages": []
+    "admin_messages": [],
+    "created_at": null,
+    "resolved_at": null
+  },
+  "5599151017": {
+    "user_name": "Sahil BitblessX",
+    "message": "Yes",
+    "status": "pending",
+    "reply": null,
+    "created_at": "2025-07-30T14:48:56.517981",
+    "resolved_at": null,
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 31
+    }
   }
 }

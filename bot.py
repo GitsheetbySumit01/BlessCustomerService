@@ -1,5 +1,3 @@
-### ✅ bot.py (Main Entry File)
-
 import sys
 import os
 import logging
@@ -23,8 +21,9 @@ from utils.localization import get_user_language
 import json
 
 logging.basicConfig(level=logging.INFO)
-WELCOME_IMAGE_ID = "WhatsApp Image 2025-07-02 at 09.41.38.jpeg"
+WELCOME_IMAGE_ID = "image.png"
 
+# /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.effective_user.id)
     track_user(user_id, update.effective_user.username)
@@ -42,6 +41,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await ask_for_language(update, context, user_id)
 
+# Handle all text inputs
 async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.effective_user.id)
     text = update.message.text
@@ -52,9 +52,9 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     if text in [
-        "\ud83d\udcde Contact Customer Service",
-        "\ud83d\udcde \u0917\u094d\u0930\u093e\u0939\u0915 \u0938\u0947\u0935\u093e \u0938\u0947 \u0938\u0902\u092a\u0930\u094d\u0915 \u0915\u0930\u0947\u0902",
-        "\ud83d\udcde \u0bb5\u0bbe\u0b9f\u0bbf\u0b95\u0b95\u0bbe\u0bb3\u0bb0\u0bcd \u0b9a\u0bc7\u0bb5\u0bc8\u0baf\u0bc8 \u0ba4\u0bca\u0b9f\u0bb0\u0bcd\u0baa\u0bc1\u0b95\u0bcb\u0bb3\u0bcd\u0bb3\u0bb5\u0bc1\u0bae\u0bcd"
+        "📞 Contact Customer Service",
+        "📞 ग्राहक सेवा से संपर्क करें",
+        "📞 வாடிக்கையாளர் சேவையை தொடர்புகொள்ளவும்"
     ]:
         await handle_support_response(update, context)
         return
@@ -73,6 +73,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await handle_menu_selection(update, context, user_id, text)
         return
 
+    # If user is sending a support message
     if context.user_data.get("awaiting_support"):
         if int(user_id) not in ADMIN_CHAT_IDS:
             await process_support_message(update, context)
@@ -81,12 +82,18 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text("⚠️ Admins can't submit tickets.")
         return
 
+    # Admin reply
     if context.user_data.get("reply_user_id"):
         await handle_admin_reply(update, context)
         return
 
-    await handle_menu_selection(update, context, user_id, text)
+    # ⛔ If no match, show this
+    await update.message.reply_text(
+        "⚠️ Invalid action.\n\n"
+        "Please use /start to begin, select from the main menu, or click 📞 Contact Customer Service to send a message to our team."
+    )
 
+# Broadcast command
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.effective_user.id)
     if int(user_id) not in ADMIN_CHAT_IDS:
@@ -97,7 +104,7 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("⚠️ Please provide the broadcast message.")
         return
 
-    broadcast_text = "\ud83d\udce2 *Broadcast Message:*\n\n" + " ".join(context.args)
+    broadcast_text = "📢 *Broadcast Message:*\n\n" + " ".join(context.args)
     users = load_users()
     if not users:
         await update.message.reply_text("⚠️ No users found.")
@@ -108,7 +115,7 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
         photo = update.message.reply_to_message.photo[-1].file_id
 
     success, failed = 0, 0
-    for uid, info in users.items():
+    for uid in users:
         try:
             if photo:
                 await context.bot.send_photo(
@@ -132,6 +139,7 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"✅ Broadcast completed.\n\nSent: {success} | Failed: {failed}"
     )
 
+# /admin command
 async def admin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.effective_user.id)
     if int(user_id) in ADMIN_CHAT_IDS:
@@ -139,7 +147,7 @@ async def admin(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await update.message.reply_text("❌ You are not authorized to use this command.")
 
-# ✅ Init
+# ✅ Bot Init
 app = ApplicationBuilder().token(BOT_TOKEN).connect_timeout(10).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("broadcast", broadcast))

@@ -19,6 +19,8 @@ def generate_pdf(mode="all"):
 
     for user_id, ticket in tickets.items():
         created_at = ticket.get("created_at")
+        if isinstance(created_at, str):
+            created_at = datetime.fromisoformat(created_at)
         if mode == "24h" and (not created_at or (now - created_at) > timedelta(hours=24)):
             continue
 

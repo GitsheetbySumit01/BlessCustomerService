@@ -1,6 +1,6 @@
 # config.py
 
-BOT_TOKEN ="7237811118:AAFqlTWnS9xdtyIgfFGBnQUGcuYu_ndWdJY"
+BOT_TOKEN ="8205849457:AAEGih4KdUDKVHGIszjTMkH2U-IBpLfMsXo"
 ADMIN_CHAT_IDS = [
     1746690976,   # Your first admin Telegram ID
     7738042835,
