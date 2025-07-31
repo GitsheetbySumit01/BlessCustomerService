@@ -1,6 +1,7 @@
 # config.py
+import os
 
-BOT_TOKEN ="8205849457:AAEGih4KdUDKVHGIszjTMkH2U-IBpLfMsXo"
+BOT_TOKEN =os.environ.get("BOT_TOKEN")
 ADMIN_CHAT_IDS = [
     1746690976,   # Your first admin Telegram ID
     5092181510] # Replace with actual Telegram user ID
