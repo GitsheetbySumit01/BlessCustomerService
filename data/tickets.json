@@ -28,14 +28,41 @@
   },
   "5599151017": {
     "user_name": "Sahil BitblessX",
-    "message": "Yes",
-    "status": "pending",
-    "reply": null,
-    "created_at": "2025-07-30T14:48:56.517981",
-    "resolved_at": null,
+    "message": "Kyui",
+    "status": "resolved",
+    "reply": "Okkkkk",
+    "created_at": "2025-07-31T20:29:02.357496",
+    "resolved_at": "2025-07-31T20:29:26.926987",
     "language": "en",
     "admin_messages": {
-      "1746690976": 31
+      "1746690976": 845,
+      "5092181510": 846
+    }
+  },
+  "5613488107": {
+    "user_name": "Max",
+    "message": "1112121",
+    "status": "resolved",
+    "reply": null,
+    "created_at": "2025-07-31T15:23:49.130794",
+    "resolved_at": "2025-07-31T19:09:56.146384",
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 791,
+      "5092181510": 792
+    }
+  },
+  "7309488216": {
+    "user_name": "Sham BitblessX",
+    "message": "If 989999",
+    "status": "resolved",
+    "reply": null,
+    "created_at": "2025-07-30T21:47:56.431030",
+    "resolved_at": "2025-07-30T22:17:51.521915",
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 396,
+      "5092181510": 397
     }
   }
 }

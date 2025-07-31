@@ -1,27 +1,20 @@
 {
-  "welcome": "👋 Welcome to BitBlessX Exchange – your trusted crypto trading platform.",
+  "welcome": "🌟Hey there, welcome to BitblessX! 🌟\nYour new crypto journey just got a whole lot more exciting! 🚀\n\nWe’re so glad to have you here — and guess what? Just for joining us, you get a $5 USDT Welcome Bonus to kickstart your trading! 🎁💸\n\nBut that’s just the beginning...\n\n✨ Why BitblessX is different (and better 😉):\n✅ Lowest Trading Fees – So you keep more of your profits!\n✅ Daily Events & Rewards – Every day brings a new chance to win BIG 🏆\n✅ Exciting Trading Options & Financial Products – Trade your way with smart tools 💹\n✅ 24/7 Friendly Support – Real humans, always here to help 🤝\n✅ Tons of Bonuses & Surprise Drops – You’ll never get bored! 🎉\n\n🎯 Whether you're a pro or just starting out, BitblessX is built for YOU.\nSo gear up, dive in, and let’s make your crypto journey fun, rewarding, and absolutely unforgettable. 💥\n\n👉 Start trading now and feel the BitblessX difference.\nLet’s grow together. 🚀💛 #BitblessX",
   "menu_header": "👇 Choose an option below to continue:",
-  
+   "language_selected": "🎉 Great! You've selected English. From now on, all messages on BitBlessX bot will be in English.",
+
   "btn_download_app": "📲 Download App",
-  "btn_recharge": "💸 How to Recharge",
-  "btn_invite": "🎁 Gift Invitation Reward",
+  "btn_invite": "🎁 Invite Friends & Win Rewards",
   "btn_buy_spot": "📈 Buy on Spot",
-  "btn_perpetual": "📊 Learn How To Trade on Futures",
-  "btn_delivery": "📜 Delivery Transactions",
-  "btn_investment": "💼 Investment & Finance",
-  "btn_sgd": "📅 SGD Subscription",
+  "btn_perpetual": "📊 Futures Trading",
+  "btn_investment": "💼 Financial Management",
   "btn_contact": "📞 Contact Customer Service",
 
-  "download_app": "Download the app from here: https://example.com",
-  "how_to_recharge": "To recharge your account, follow this guide: https://example.com/recharge",
-  "gift_invite": "Invite your friends and earn rewards: https://example.com/invite",
-  "buy_spot": "Learn how to buy spot: https://example.com/spot",
-  "perpetual_contract": "Conduct perpetual contracts here: https://example.com/perpetual",
-  "delivery_contact": "Complete delivery transactions here: https://example.com/delivery",
-  "investment": "Start investment and financial management here: https://example.com/investment",
-  "sgd_subscription": "Participate in SGD subscriptions here: https://example.com/sgd",
-  "support_prompt": "🆘 Still need help? Please describe your issue and share your Bless UID below.",
+  "download_app": "Download the app from here: https://m.bitblessx.com",
+  "gift_invite": "Invite your friends and earn rewards: https://m.bitblessx.com/invite",
+  "buy_spot": "Learn how to buy on spot: https://m.bitblessx/spot",
+  "perpetual_contract": "Learn how to trade on futures: https://m.bitblessx.com/perpetual",
+  "investment": "Start your financial management here: https://example.com/investment",
+  "support_prompt": "🆘 Still need help? Please describe your issue and share your BitblessX UID below.",
   "support_ack": "✅ Thank you! Your message has been received. Our support team will contact you soon."
-
-
 }

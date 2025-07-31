@@ -3,18 +3,6 @@
 BOT_TOKEN ="8205849457:AAEGih4KdUDKVHGIszjTMkH2U-IBpLfMsXo"
 ADMIN_CHAT_IDS = [
     1746690976,   # Your first admin Telegram ID
-    7738042835,
-    7631532192,
-    6808609415,
-    7455666686,
-    7018255736,
-    8183694726,
-    1157748463,
-    1175393571,
-    8150738862,
-    7808929816,
-    7068035927,
-    6594026745,
     5092181510] # Replace with actual Telegram user ID
 LANGUAGES = ["English", "Hindi", "Tamil"]
 
