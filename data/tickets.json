@@ -1,21 +1,16 @@
 {
   "1175393571": {
     "user_name": "Amrita",
-    "message": "Issue",
-    "status": "resolved",
+    "message": "Good morning",
+    "status": "pending",
     "reply": null,
-    "messages_sent": [
-      {
-        "admin_chat_id": 1746690976,
-        "message_id": 1012
-      },
-      {
-        "admin_chat_id": 1175393571,
-        "message_id": 1013
-      }
-    ],
-    "created_at": null,
-    "resolved_at": null
+    "created_at": "2025-08-09T19:15:36.728481",
+    "resolved_at": null,
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 1886,
+      "5092181510": 1887
+    }
   },
   "1746690976": {
     "user_name": "Entrepreneur",
@@ -28,15 +23,15 @@
   },
   "5599151017": {
     "user_name": "Sahil BitblessX",
-    "message": "Kyui",
+    "message": "Okay",
     "status": "resolved",
-    "reply": "Okkkkk",
-    "created_at": "2025-07-31T20:29:02.357496",
-    "resolved_at": "2025-07-31T20:29:26.926987",
+    "reply": "Okay man",
+    "created_at": "2025-08-09T15:59:08.498854",
+    "resolved_at": "2025-08-09T15:59:23.750235",
     "language": "en",
     "admin_messages": {
-      "1746690976": 845,
-      "5092181510": 846
+      "1746690976": 1738,
+      "5092181510": 1739
     }
   },
   "5613488107": {
@@ -63,6 +58,84 @@
     "admin_messages": {
       "1746690976": 396,
       "5092181510": 397
+    }
+  },
+  "8006719080": {
+    "user_name": "Ethan",
+    "message": "88998",
+    "status": "pending",
+    "reply": null,
+    "created_at": "2025-08-03T17:21:42.403979",
+    "resolved_at": null,
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 1146,
+      "5092181510": 1147
+    }
+  },
+  "7659070055": {
+    "user_name": "Jesus Whitehead",
+    "message": "bangbangwo",
+    "status": "pending",
+    "reply": "Wassup",
+    "created_at": "2025-08-03T17:22:38.110842",
+    "resolved_at": null,
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 1158,
+      "5092181510": 1159
+    }
+  },
+  "7766032223": {
+    "user_name": "Michael Caldwell",
+    "message": "\u5e2e\u5e2e\u6211",
+    "status": "pending",
+    "reply": null,
+    "created_at": "2025-08-03T17:25:19.910701",
+    "resolved_at": null,
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 1185,
+      "5092181510": 1186
+    }
+  },
+  "7583844486": {
+    "user_name": "Dragon",
+    "message": "hi",
+    "status": "pending",
+    "reply": null,
+    "created_at": "2025-08-03T17:29:44.829403",
+    "resolved_at": null,
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 1215,
+      "5092181510": 1216
+    }
+  },
+  "7159660845": {
+    "user_name": "Ashley Marks",
+    "message": "NONO",
+    "status": "pending",
+    "reply": null,
+    "created_at": "2025-08-03T17:30:34.084669",
+    "resolved_at": null,
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 1233,
+      "5092181510": 1234
+    }
+  },
+  "7774406395": {
+    "user_name": "\u51fa/\u56fd\u5185\u5916\u5b9e\u540d\u8d26\u53f7",
+    "message": "Can you lend me $500? ID123456",
+    "status": "pending",
+    "reply": null,
+    "created_at": "2025-08-03T17:34:06.880506",
+    "resolved_at": null,
+    "language": "en",
+    "admin_messages": {
+      "1746690976": 1261,
+      "5092181510": 1262
     }
   }
 }

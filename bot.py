@@ -1,4 +1,3 @@
-# ✅ FINAL bot.py with all fixes and full sync of ticket resolution messages
 import sys
 import os
 import logging
@@ -23,6 +22,7 @@ from utils.ticket_manager import get_admin_message_ids, mark_resolved
 import json
 
 logging.basicConfig(level=logging.INFO)
+
 WELCOME_IMAGE_ID = "image.png"
 
 # Memory storage for ticket tracking
@@ -52,10 +52,12 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text
     track_user(user_id, update.effective_user.username)
 
+    # Language selection
     if text in ["English", "Hindi", "Tamil"]:
         await handle_language_choice(update, context, user_id, text)
         return
 
+    # Contact Customer Service
     if text in [
         "📞 Contact Customer Service",
         "📞 ग्राहक सेवा से संपर्क करें",
@@ -64,10 +66,12 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await handle_support_response(update, context)
         return
 
+    # Get language data
     lang = get_user_language(user_id) or "en"
     with open(f"messages/{lang}.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    # Check if text matches a menu option
     menu_texts = [
         data["btn_download_app"],
         data["btn_invite"],
@@ -76,7 +80,6 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         data["btn_investment"],
         data["btn_contact"]
     ]
-
     if text in menu_texts:
         await handle_menu_selection(update, context, user_id, text)
         return
@@ -85,7 +88,6 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if context.user_data.get("awaiting_support"):
         if int(user_id) not in ADMIN_CHAT_IDS:
             msg = await process_support_message(update, context)
-            # Track ticket message across admins
             if msg:
                 bless_uid = update.message.text.split(" ")[0]
                 TICKET_MESSAGES[bless_uid] = {
@@ -101,6 +103,7 @@ async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await handle_admin_reply(update, context)
         return
 
+    # Invalid input fallback
     await update.message.reply_text(
         "⚠️ Invalid action.\n\nPlease use /start to begin, select from the main menu, or click 📞 Contact Customer Service to send a message to our team."
     )
@@ -169,7 +172,6 @@ async def handle_admin_callback(update: Update, context: ContextTypes.DEFAULT_TY
         bless_uid = data.split("_", 1)[1]
         mark_resolved(bless_uid)
 
-        # Notify all admins about the resolution
         for admin_id in ADMIN_CHAT_IDS:
             try:
                 await context.bot.send_message(
@@ -180,7 +182,6 @@ async def handle_admin_callback(update: Update, context: ContextTypes.DEFAULT_TY
             except Exception as e:
                 logging.warning(f"Failed to notify admin {admin_id}: {e}")
 
-        # Delete the original ticket messages shown to each admin
         message_ids = get_admin_message_ids(bless_uid)
         for admin_id, msg_id in message_ids.items():
             try:
@@ -194,7 +195,7 @@ async def handle_admin_callback(update: Update, context: ContextTypes.DEFAULT_TY
         await query.message.reply_text(f"✏️ Please type your reply to user `{bless_uid}`.", parse_mode="Markdown")
 
 # ✅ Bot Init
-app = ApplicationBuilder().token(BOT_TOKEN).connect_timeout(10).build()
+app = ApplicationBuilder().token(BOT_TOKEN).connect_timeout(120).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("broadcast", broadcast))
 app.add_handler(CommandHandler("admin", admin))
@@ -203,4 +204,4 @@ app.add_handler(CallbackQueryHandler(handle_admin_callback))
 app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_text))
 
 print("🚀 Bless Exchange Bot is running...")
-app.run_polling()
+app.run_polling()   
